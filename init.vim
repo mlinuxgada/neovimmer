@@ -37,6 +37,8 @@ if has('nvim') || has('patch-8.0.902')
 else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
+"Autoclosing:
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 "COPY/PASTE:
