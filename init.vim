@@ -29,14 +29,13 @@ Plug 'ncm2/ncm2-ultisnips'
 Plug 'SirVer/ultisnips'
 "Git:
 Plug 'tpope/vim-fugitive'
+"Vim-Signify
+Plug 'mhinz/vim-signify'
 "Airline:
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-if has('nvim') || has('patch-8.0.902')
-  Plug 'mhinz/vim-signify'
-else
-  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-endif
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"LightLine:
+Plug 'itchyny/lightline.vim'
 "Autoclosing:
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
@@ -129,6 +128,7 @@ map <silent> <C-t> :tabnew <CR>
 "Navigation between tabs with Alt and left/right arrow
 nnoremap <M-Left> gT
 nnoremap <M-Right> gt
+"nmap g<C-]> :execute 'tab tag '.expand('<cword>')<CR>
 
 "SHORTCUTS:
 "----------
@@ -183,9 +183,9 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 set cursorline
 
 " Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_enable_hunks = 0
-let g:airline_powerline_fonts=1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_enable_hunks = 0
+"let g:airline_powerline_fonts=1
 
 " reload files changed outside nvim
 if ! exists("g:CheckUpdateStarted")
@@ -196,3 +196,7 @@ function! CheckUpdate(timer)
     silent! checktime
     call timer_start(1000,'CheckUpdate')
 endfunction
+
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+"au FileType go nmap <C-]> <Plug>(go-def-tab)
+"au FileType go nmap <C-]> <Plug>(go-def-tab)
