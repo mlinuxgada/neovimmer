@@ -9,6 +9,8 @@ call plug#begin('~/.config/nvim/plugged')
 "File Search:
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 "File Browser:
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -129,6 +131,11 @@ map <silent> <C-t> :tabnew <CR>
 nnoremap <M-Left> gT
 nnoremap <M-Right> gt
 "nmap g<C-]> :execute 'tab tag '.expand('<cword>')<CR>
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 "SHORTCUTS:
 "----------
